@@ -27,3 +27,7 @@
 #include <math.h>
 #include <thread>         // std::this_thread::sleep_for
 #include <chrono>
+#include <string>
+
+#include <string>
+#include <sstream>

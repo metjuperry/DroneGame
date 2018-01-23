@@ -6,17 +6,47 @@ Drone::Drone()
     droneShape.setFillColor(sf::Color::Black);
 }
 
+void Drone::getGridArray(int *_BrickArray)
+{
+    BrickArray = _BrickArray;
+}
 
-void Drone::show(sf::RenderWindow &window) {
+void Drone::show(sf::RenderWindow &window)
+{
     window.draw(droneShape);
 }
 
-void Drone::setPosition(float x, float y){
+void Drone::setPosition(float x, float y)
+{
     droneShape.setPosition(x,y);
 }
 
+void Drone::pickUp()
+{
+    if (BrickArray[y * 7 + x] - 1 < 0)
+    {
+        BrickArray[y * 7 + x] = 5;
+    }
+    else
+    {
+        BrickArray[y * 7 + x]--;
+    }
+}
 
-void Drone::restrict(std::pair<int, int> x_borders,std::pair<int, int> y_borders){
+void Drone::putDown()
+{
+    if (BrickArray[y * 7 + x] + 1 > 5)
+    {
+        BrickArray[y * 7 + x] = 0;
+    }
+    else
+    {
+        BrickArray[y * 7 + x]++;
+    }
+}
+
+void Drone::restrict(std::pair<int, int> x_borders,std::pair<int, int> y_borders)
+{
     if (x < x_borders.first)
         x = x_borders.first;
     if (x > x_borders.second)

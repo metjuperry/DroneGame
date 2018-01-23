@@ -15,20 +15,6 @@ enum GameStates
     ENDING
 };
 
-struct MouseInfo {
-    bool pressed;
-
-    enum CommandType {
-        None,
-        MoveUp,
-        MoveDown,
-        MoveLeft,
-        MoveRight
-    };
-
-    CommandType Held;
-};
-
 class Game
 {
 public:
@@ -41,13 +27,21 @@ private:
     static GameStates GameState;
     static sf::RenderWindow mainWindow;
 
+    static void DrawBricks();
+
     static Drone drone1;
     static void UpdateDrone(Drone *droneToUpdate);
 
     static std::vector<sf::RectangleShape> Grid;
     static std::vector<Function*> AvailibleCommands;
     static TimeLine executeLine;
-    static MouseInfo Mouse;
+    static int Bricks[49];
+
+    static sf::Texture oneBrick;
+    static sf::Texture twoBrick;
+    static sf::Texture threeBrick;
+    static sf::Texture fourBrick;
+    static sf::Texture fiveBrick;
 };
 
 #endif // GAME_H
