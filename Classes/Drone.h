@@ -23,6 +23,7 @@ public:
 
     int *BrickArray;
     sf::CircleShape droneShape;
+    sf::Texture droneTex;
 };
 
 #endif // DRONE_H

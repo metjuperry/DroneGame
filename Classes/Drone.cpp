@@ -2,8 +2,11 @@
 
 Drone::Drone()
 {
+    droneTex.loadFromFile("cuteDrone.png");
+
     droneShape.setRadius(24);
-    droneShape.setFillColor(sf::Color::Black);
+    droneShape.setTexture(&droneTex);
+    //droneShape.setFillColor(sf::Color::Black);
 }
 
 void Drone::getGridArray(int *_BrickArray)
